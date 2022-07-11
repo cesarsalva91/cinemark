@@ -1,0 +1,62 @@
+package cinemark;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class log {
+	public static boolean estaRegistrado(String usuario, String pass) {
+		String tabla = "usuario";
+    	boolean ban = false;
+		try {
+			ResultSet rs = verTabla.verDb(tabla);
+			
+			while((rs.next())&&(ban = false)) {
+				
+				String usuariodb = rs.getString(5);//columna usuario
+				String passdb = rs.getString(6);//columna pass
+				if ((usuario == usuariodb)&&(pass == passdb)) {
+					ban = true;
+				}
+					
+				}
+		
+		} catch (SQLException e) {
+			System.out.println("Error al validar usuario");
+		}
+		return true;
+	}
+	public void nuevoUsuario() {
+		String tabla = "usuario";
+    	boolean ban = false;
+		try {
+			ResultSet rs = verTabla.verDb(tabla);
+			Scanner entrada = new Scanner(System.in);
+			String usuario = entrada.nextLine();
+			
+			while((rs.next())&&(ban = false)) {
+				
+				String usuariodb = rs.getString(5);//columna usuario
+				if ((usuario == usuariodb)) {
+					ban = true;
+					System.out.println("Nombre de usuario existente");
+				}
+					
+				}
+			if (ban == false) {
+				
+			}
+			
+		
+		} catch (SQLException e) {
+			System.out.println("Error al validar usuario");
+		}
+	   
+	}
+		
+	/*public static void main(String[] args) {
+		System.out.println(estaRegistrado("CesarSalva","545454"));
+	}	*/
+	
+
+}

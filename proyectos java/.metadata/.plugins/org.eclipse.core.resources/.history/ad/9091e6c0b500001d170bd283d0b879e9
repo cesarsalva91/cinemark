@@ -1,0 +1,81 @@
+package cinemark;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+public class windowsLog extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField textField;
+	private JPasswordField passwordField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					windowsLog frame = new windowsLog();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public windowsLog() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 193, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(81, 64, 86, 20);
+		contentPane.add(passwordField);
+		
+		JLabel lblPass = new JLabel("Pass");
+		lblPass.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPass.setForeground(Color.WHITE);
+		lblPass.setFont(new Font("Century Schoolbook", Font.BOLD, 14));
+		lblPass.setBounds(10, 65, 46, 14);
+		contentPane.add(lblPass);
+		
+		textField = new JTextField();
+		textField.setBounds(81, 22, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lbUser = new JLabel("User");
+		lbUser.setFont(new Font("Century Schoolbook", Font.BOLD, 14));
+		lbUser.setHorizontalAlignment(SwingConstants.LEFT);
+		lbUser.setForeground(Color.WHITE);
+		lbUser.setBounds(10, 25, 46, 14);
+		contentPane.add(lbUser);
+		
+		JLabel lbFondo = new JLabel("");
+		lbFondo.setIcon(new ImageIcon("S:\\cinemak\\images.jpg"));
+		lbFondo.setBounds(0, 0, 183, 261);
+		contentPane.add(lbFondo);
+	}
+}
